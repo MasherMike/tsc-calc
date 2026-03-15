@@ -316,6 +316,18 @@
   /* ── TOAST ── */
   .toast { position: fixed; bottom: calc(var(--safe-bottom) + 80px); left: 50%; transform: translateX(-50%) translateY(20px); background: var(--dark); color: var(--white); padding: 10px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 999; white-space: nowrap; }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Legal Panels ── */
+  .legal-panel { background: var(--white); border-radius: 14px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .legal-header { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; gap: 10px; }
+  .legal-header-left { display: flex; align-items: center; gap: 10px; font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 1px; color: var(--dark); }
+  .legal-chevron { font-size: 12px; color: var(--mid); transition: transform 0.2s; display: inline-block; }
+  .legal-chevron.open { transform: rotate(90deg); }
+  .legal-body { display: none; padding: 0 16px 16px; font-size: 13px; color: var(--mid); line-height: 1.7; }
+  .legal-body.open { display: block; }
+  .legal-body ul { margin: 8px 0 0 0; padding-left: 18px; }
+  .legal-body ul li { margin-bottom: 6px; }
+  .legal-effective { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-bottom: 10px; display: block; }
 </style>
 </head>
 <body>
