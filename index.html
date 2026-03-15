@@ -1600,6 +1600,20 @@ renderFavorites();
 loadGoalInputs();
 renderGoalBars();
 runFilter();
+
+// ── Legal Accordion ──
+function toggleLegal(id) {
+  const allBodies = document.querySelectorAll('.legal-body');
+  const allChevrons = document.querySelectorAll('.legal-chevron');
+  const target = document.getElementById(id);
+  const isOpen = target.classList.contains('open');
+  allBodies.forEach(b => b.classList.remove('open'));
+  allChevrons.forEach(c => c.classList.remove('open'));
+  if (!isOpen) {
+    target.classList.add('open');
+    target.previousElementSibling.querySelector('.legal-chevron').classList.add('open');
+  }
+}
 </script>
 </body>
 </html>
