@@ -82,7 +82,7 @@ function toggleLegal(id) {
 - No cookies, no third-party analytics, no tracking.
 - The AI analysis feature routes requests through a secure proxy server. No user data is logged or retained by the proxy.
 - Data practices may change as features expand. This policy will be updated accordingly.
-- Contact: legal@obsidiancorvus.com (placeholder — to be updated)
+- ~~Contact: legal@obsidiancorvus.com~~ _(deferred — contact email not yet active; will be added once legal@obsidiancorvus.com is set up)_
 
 ### Terms of Service
 **Effective: March 14, 2026**
