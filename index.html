@@ -80,6 +80,104 @@
   body.dark-mode .macro-chart-wrap { background: #333; }
   body.dark-mode .macro-legend-item span:first-child { color: #f0f0f0; }
 
+  /* ── Dark mode — expanded overrides (from POR) ── */
+
+  /* Legal panels */
+  body.dark-mode .legal-panel { background: #2a2a2a; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  body.dark-mode .legal-header { background: #2a2a2a; border-bottom-color: #3a3a3a; }
+  body.dark-mode .legal-header-left { color: #f0f0f0; }
+  body.dark-mode .legal-body { color: #aaa; }
+  body.dark-mode .legal-body strong { color: #f0f0f0; }
+  body.dark-mode .legal-effective { color: #666; }
+
+  /* About tab */
+  body.dark-mode .about-row { border-bottom-color: #2a2a2a; }
+  body.dark-mode .about-row .lbl { color: #777; }
+  body.dark-mode .about-row .val { color: #f0f0f0; }
+  body.dark-mode .about-note { color: #777; }
+
+  /* Compare tab */
+  body.dark-mode .compare-side { background: #2a2a2a; }
+  body.dark-mode .compare-results { background: #2a2a2a; }
+  body.dark-mode .compare-row { border-bottom-color: #3a3a3a; }
+  body.dark-mode .compare-row.header { background: #222; }
+  body.dark-mode .compare-cell { color: #f0f0f0; }
+  body.dark-mode .compare-cell.nutrient { color: #888; }
+  body.dark-mode .compare-winner-banner.a { background: #0d2a4a; color: #90caf9; }
+  body.dark-mode .compare-winner-banner.b { background: #2a0d3a; color: #ce93d8; }
+  body.dark-mode .compare-cell.winner-a { color: #90caf9; }
+  body.dark-mode .compare-cell.winner-b { color: #ce93d8; }
+  body.dark-mode .compare-addin-chip.sel-a { border-color: #1565c0; background: #0d2a4a; color: #90caf9; }
+  body.dark-mode .compare-addin-chip.sel-b { border-color: #6a1b9a; background: #2a0d3a; color: #ce93d8; }
+  body.dark-mode .addin-card.food-selected { border-color: #9c4dcc; background: #2a1a3a; }
+  body.dark-mode .addin-card.food-selected::after { color: #ce93d8; }
+  body.dark-mode .compare-addin-chip { background: #2a2a2a; border-color: #3a3a3a; color: #aaa; }
+
+  /* Food categories */
+  body.dark-mode .food-cat-divider { background: #3a3a3a; }
+  body.dark-mode .food-cat-arrow { color: #aaa; }
+  body.dark-mode .addin-cal { color: #888; }
+  body.dark-mode .food-items { background: #1e1e1e; }
+
+  /* Section labels */
+  body.dark-mode .section-label { color: #666; }
+  body.dark-mode .section-label::after { background: #2a2a2a; }
+
+  /* Buttons */
+  body.dark-mode .btn-secondary { color: #888; border-color: #3a3a3a; }
+  body.dark-mode .btn-secondary:active { border-color: var(--red); color: var(--red); }
+
+  /* Goal mode */
+  body.dark-mode .goal-input-label { color: #888; }
+  body.dark-mode .goal-bar-name { color: #f0f0f0; }
+  body.dark-mode .goal-bar-vals { color: #888; }
+  body.dark-mode .goal-summary { background: #222; color: #aaa; }
+  body.dark-mode #goalProgressCard { background: #2a2a2a; }
+
+  /* Favorites */
+  body.dark-mode .fav-item-sub { color: #888; }
+  body.dark-mode .fav-macro { color: #888; }
+  body.dark-mode .fav-macro strong { color: #f0f0f0; }
+  body.dark-mode .fav-btn.load { background: var(--teal); }
+  body.dark-mode .fav-empty { color: #666; }
+
+  /* Filter */
+  body.dark-mode .filter-empty { color: #666; }
+  body.dark-mode .filter-result-cat { color: #888; }
+  body.dark-mode .filter-stat { color: #888; }
+  body.dark-mode .filter-stat strong { color: #f0f0f0; }
+  body.dark-mode .per100-label { color: #888; }
+  body.dark-mode .filter-stat.highlight strong { color: #4db6ac; }
+  body.dark-mode .toggle-track { background: #444; }
+  body.dark-mode .toggle-track::before { background: #ccc; }
+
+  /* Size toggle */
+  body.dark-mode .size-label { color: #777; }
+  body.dark-mode .size-btn { color: #777; }
+
+  /* Smoothie preview */
+  body.dark-mode .preview-macro { color: #aaa; }
+  body.dark-mode .preview-macro strong { color: #f0f0f0; }
+  body.dark-mode .preview-cal-label { color: #888; }
+
+  /* Tags */
+  body.dark-mode .selected-tags .tag { opacity: 0.9; }
+
+  /* Alerts */
+  body.dark-mode .alert strong { color: inherit; }
+
+  /* Toast */
+  body.dark-mode .toast { background: #f0f0f0; color: #1a1a1a; }
+
+  /* Field labels */
+  body.dark-mode .field-label { color: #777; }
+
+  /* Macro chart legend */
+  body.dark-mode .macro-legend-name { color: #f0f0f0; }
+  body.dark-mode .macro-legend-val { color: #888; }
+  body.dark-mode .macro-chart-title { color: #777; }
+  body.dark-mode .macro-donut-lbl { color: #888; }
+
   /* dark mode toggle button */
   .dark-toggle { background: none; border: none; font-size: 20px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: background 0.2s; }
   .dark-toggle:active { background: rgba(255,255,255,0.1); }
@@ -367,7 +465,6 @@
   .filter-goal-select { width: 100%; padding: 12px 14px; border: 2px solid var(--light); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--dark); background: var(--cream); appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; cursor: pointer; margin-bottom: 6px; }
   .filter-goal-select:focus { outline: none; border-color: var(--teal); }
   .filter-goal-desc { font-size: 11px; color: var(--mid); line-height: 1.5; margin-bottom: 14px; min-height: 32px; padding: 0 2px; }
-  body.dark-mode .filter-goal-select { background-color: #2a2a2a; color: #f0f0f0; border-color: #3a3a3a; }
   .filter-type-row { display: flex; gap: 8px; margin-bottom: 14px; }
   .filter-type-btn { flex: 1; padding: 9px; border: 2px solid var(--light); border-radius: 10px; background: var(--white); font-size: 12px; font-weight: 700; color: var(--mid); cursor: pointer; text-align: center; transition: all 0.2s; }
   .filter-type-btn.active { border-color: var(--orange); background: var(--orange-light); color: var(--orange); }
@@ -421,7 +518,6 @@
   .legal-body ul { margin: 8px 0 0 0; padding-left: 18px; }
   .legal-body ul li { margin-bottom: 6px; }
   .legal-effective { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-bottom: 10px; display: block; }
-  body.dark-mode .legal-panel { box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
 </style>
 </head>
 <body>
