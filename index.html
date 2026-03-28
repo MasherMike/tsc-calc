@@ -2108,58 +2108,58 @@ function buildPoolCache(pool) {
   };
 }
 
-function selectGoalRow(goal) {
-  filterGoal = goal;
-  // Update selected state on all goal rows
-  document.querySelectorAll('.goal-row').forEach(r => r.classList.remove('selected'));
-  const row = document.querySelector(`.goal-row[data-goal="${goal}"]`);
+const SIMPLE_GOALS = ['protein','cal_low','cal_high','fiber','sugar_low','sodium_low','fat_low'];
+
+const GOAL_GROUP = {
+  protein:'simple', cal_low:'simple', cal_high:'simple', fiber:'simple',
+  sugar_low:'simple', sodium_low:'simple', fat_low:'simple',
+  protein_cal:'ratios', protein_carb:'ratios', fiber_cal:'ratios',
+  sugar_cal:'ratios', fat_cal:'ratios',
+  clean_score:'composite'
+};
+
+function selectGoalRow(value) {
+  document.querySelectorAll('#filterAccordion .goal-row').forEach(r => r.classList.remove('selected'));
+  const row = document.querySelector('#filterAccordion .goal-row[data-goal="' + value + '"]');
   if (row) row.classList.add('selected');
-  // Update accordion badges
-  ['simple','ratios','composite'].forEach(g => {
-    const badge = document.getElementById(`accBadge-${g}`);
-    const group = document.getElementById(`accGroup-${g}`);
-    if (!badge || !group) return;
-    const activeRow = group.querySelector('.goal-row.selected');
-    if (activeRow && !group.classList.contains('open')) {
-      badge.textContent = activeRow.querySelector('.goal-row-name').textContent.replace(/^\S+\s/,'');
-      badge.style.display = 'inline-block';
-    } else {
-      badge.textContent = '';
-      badge.style.display = 'none';
-    }
-  });
-  // Show/hide per-100-cal toggle for simple goals only
-  const simplePer100Goals = ['protein','cal_low','cal_high','fiber','sugar_low','sodium_low','fat_low'];
-  const per100Row = document.getElementById('filterPer100Row');
-  if (per100Row) per100Row.style.display = simplePer100Goals.includes(goal) ? 'flex' : 'none';
+  filterGoal = value;
+  updateAccordionBadges();
+  updatePer100Visibility();
   runFilter();
 }
 
+function updateAccordionBadges() {
+  ['simple','ratios','composite'].forEach(function(id) {
+    const group = document.getElementById('accGroup-' + id);
+    const badge = document.getElementById('accBadge-' + id);
+    if (!group || !badge) return;
+    const isOpen = group.classList.contains('open');
+    const selectedRow = group.querySelector('.goal-row.selected');
+    if (!isOpen && selectedRow) {
+      badge.textContent = selectedRow.querySelector('.goal-row-name').textContent;
+      badge.classList.add('visible');
+    } else {
+      badge.classList.remove('visible');
+    }
+  });
+}
+
+function updatePer100Visibility() {
+  const row = document.getElementById('filterPer100Row');
+  if (!row) return;
+  row.style.display = SIMPLE_GOALS.includes(filterGoal) ? 'flex' : 'none';
+}
+
 function toggleAccGroup(groupId) {
-  const groups = ['simple','ratios','composite'];
-  groups.forEach(g => {
-    const el = document.getElementById(`accGroup-${g}`);
-    if (!el) return;
-    if (g === groupId) {
+  ['simple','ratios','composite'].forEach(function(id) {
+    const el = document.getElementById('accGroup-' + id);
+    if (id === groupId) {
       el.classList.toggle('open');
     } else {
       el.classList.remove('open');
     }
   });
-  // Update badges after toggling
-  groups.forEach(g => {
-    const badge = document.getElementById(`accBadge-${g}`);
-    const group = document.getElementById(`accGroup-${g}`);
-    if (!badge || !group) return;
-    const activeRow = group.querySelector('.goal-row.selected');
-    if (activeRow && !group.classList.contains('open')) {
-      badge.textContent = activeRow.querySelector('.goal-row-name').textContent.replace(/^\S+\s/,'');
-      badge.style.display = 'inline-block';
-    } else {
-      badge.textContent = '';
-      badge.style.display = 'none';
-    }
-  });
+  updateAccordionBadges();
 }
 
 function onFilterGoalChange() {
@@ -2301,12 +2301,8 @@ applyDarkMode();
 renderFavorites();
 loadGoalInputs();
 renderGoalBars();
-// Initialize per-100-cal toggle visibility (simple goals shown by default)
-(function() {
-  const per100Row = document.getElementById('filterPer100Row');
-  if (per100Row) per100Row.style.display = 'flex';
-})();
 runFilter();
+updatePer100Visibility();
 
 // ── Legal Accordion ──
 function toggleLegal(id) {
